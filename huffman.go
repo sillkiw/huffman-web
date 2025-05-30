@@ -155,7 +155,62 @@ func Encode(data []byte) {
 	WriteToFile(bitStream)
 }
 
-func Decode() {
+func Decode() ([]ValueType, error) {
+
+	var (
+		output   []ValueType
+		currBits uint64
+		bitCount byte
+		maxBits  byte = 64
+	)
+
+	data, err := os.ReadFile("output.bin")
+
+	if err != nil {
+		fmt.Println("Ошибка чтения файла:", err)
+		return nil, err
+	}
+
+	table := make(map[HuffCode]ValueType)
+
+	for key, value := range Table {
+		table[value] = key
+	}
+
+	padding := data[0]
+
+	totalBits := len(data[1:])*8 - int(padding)
+
+	bitIndex := 0
+
+	for _, b := range data[1:] {
+		for i := 7; i >= 0; i-- {
+			if bitIndex >= totalBits {
+				break
+			}
+			bit := (b >> i) & 1
+			currBits = (currBits << 1) | uint64(bit)
+			bitCount++
+
+			key := HuffCode{r: currBits, bits: bitCount}
+
+			if sym, ok := table[key]; ok {
+				output = append(output, sym)
+				currBits = 0
+				bitCount = 0
+			}
+			bitIndex++
+			if bitCount > maxBits {
+				return nil, fmt.Errorf("bit sequence too long or invalid Huffman table")
+			}
+		}
+	}
+
+	for _, el := range output {
+		fmt.Printf("%c", el)
+	}
+
+	return output, nil
 
 }
 
