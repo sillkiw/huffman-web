@@ -9,10 +9,16 @@ A simple web application for encoding and decoding files using Huffman coding.
 - **Web Interface**: User-friendly HTML interface with upload and download pages.
 - **Structured Logging**: Built-in request and error logging with `slog`.
 
-### Setup
+## Setup
 
 ```bash
 git clone https://github.com/yourusername/huffman-web.git
 cd huffman-web
 go mod tidy
-go run ./cmd/web/.
+```
+
+## Running the Server
+
+```bash
+go run cmd/web/main.go -addr :4000
+```
