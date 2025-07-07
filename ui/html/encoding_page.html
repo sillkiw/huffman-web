@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <title>Huffman encoding</title>
+        <link rel="stylesheet" href="/static/css/style.css">
+    </head>
+    <body>
+        <header>
+            <h1><a href='/'>Huffman encoding</a></h1>
+        </header>
+        <nav>
+            <a href='/encoding'>Encoding</a>
+            <a href='/decoding'>Decoding</a>
+        </nav>
+        <main>
+            <form action="/upload" method="post" enctype="multipart/form-data" class="container">
+            <label for="upload">Choose a file to encode:</label>
+            <input type="file" id="upload" name="upload" accept=".txt,text/plain" required>
+
+            <button type="submit">Upload &amp; Encode</button>
+            </form>
+
+        </main>
+        <footer>
+            <a href="https://github.com/sillkiw/huffman-web">GitHub</a>
+        </footer>
+    </body>
+</html>
