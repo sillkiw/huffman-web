@@ -1,1 +1,24 @@
-# web_archive
+# Huffman Web
+
+A simple web application for encoding and decoding files using Huffman coding.
+
+## Features
+
+- **File Encoding**: Upload files to compress using Huffman coding.
+- **File Decoding**: Decode previously Huffman-encoded files.
+- **Web Interface**: User-friendly HTML interface with upload and download pages.
+- **Structured Logging**: Built-in request and error logging with `slog`.
+
+## Installation
+
+### Prerequisites
+
+- Go 1.20 or later
+- Git
+
+### Setup
+
+```bash
+git clone https://github.com/yourusername/huffman-web.git
+cd huffman-web
+go mod tidy
