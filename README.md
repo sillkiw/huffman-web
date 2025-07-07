@@ -22,3 +22,4 @@ A simple web application for encoding and decoding files using Huffman coding.
 git clone https://github.com/yourusername/huffman-web.git
 cd huffman-web
 go mod tidy
+go run ./cmd/web/.
