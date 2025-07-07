@@ -9,13 +9,6 @@ A simple web application for encoding and decoding files using Huffman coding.
 - **Web Interface**: User-friendly HTML interface with upload and download pages.
 - **Structured Logging**: Built-in request and error logging with `slog`.
 
-## Installation
-
-### Prerequisites
-
-- Go 1.20 or later
-- Git
-
 ### Setup
 
 ```bash
