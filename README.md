@@ -12,7 +12,7 @@ A simple web application for encoding and decoding files using Huffman coding.
 ## Setup
 
 ```bash
-git clone https://github.com/yourusername/huffman-web.git
+git clone https://github.com/sillkiw/huffman-web.git
 cd huffman-web
 go mod tidy
 ```
