@@ -9,15 +9,17 @@ func (sn sortNodes) Len() int           { return len(sn) }
 func (sn sortNodes) Less(i, j int) bool { return sn[i].Count < sn[j].Count }
 func (sn sortNodes) Swap(i, j int)      { sn[i], sn[j] = sn[j], sn[i] }
 
-// buildNodeList builds initiate leaves of the Huffman tree
-func buildNodeList(data []byte) []*Node {
-
+func buildFreqTable(data []byte) map[ValueType]int {
 	freq := make(map[ValueType]int)
 
 	for _, el := range data {
 		freq[ValueType(el)]++
 	}
+	return freq
+}
 
+// buildNodeList builds initiate leaves of the Huffman tree
+func buildNodeList(freq map[ValueType]int) []*Node {
 	leaves := make([]*Node, 0)
 	for key, value := range freq {
 		leaves = append(leaves, &Node{Value: key, Count: value})

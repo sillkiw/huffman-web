@@ -14,13 +14,19 @@
             <a href='/decoding'>Decoding</a>
         </nav>
         <main>
-            <p>Your file has been encoded successfully.</p>
-            <p>It consists of three parts in order: the length of the packed bytes, the serialized frequency table, and the Huffman-encoded data.</p>
+            <p>
+  To successfully decode a file, its structure must follow this order:
+  first the padding length, then the serialized frequency table,
+  and finally the Huffman‑encoded data.
+</p>
 
-            <form action="/download" method="get" class="container">
-            <input type="hidden" name="file" value="{{.FilePath}}">
-            <button type="submit" class="button">Download Encoded File</button>
+            <form action="/upload-decoding" method="post" enctype="multipart/form-data" class="container">
+            <label for="upload">Choose a file to decode:</label>
+            <input type="file" id="upload" name="upload" accept=".huff" required>
+
+            <button type="submit">Upload &amp; Decode</button>
             </form>
+
         </main>
         <footer>
             <a href="https://github.com/sillkiw/huffman-web">GitHub</a>

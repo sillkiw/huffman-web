@@ -14,13 +14,13 @@
             <a href='/decoding'>Decoding</a>
         </nav>
         <main>
-            <form action="/upload-encoding" method="post" enctype="multipart/form-data" class="container">
-            <label for="upload">Choose a file to encode:</label>
-            <input type="file" id="upload" name="upload" accept=".txt,text/plain" required>
+        <p>Your file has been encoded successfully.</p>
+        <p>It contains three sections in order: the padding length, the serialized frequency table, and the Huffman‑encoded data.</p>
 
-            <button type="submit">Upload &amp; Encode</button>
+            <form action="/download" method="get" class="container">
+            <input type="hidden" name="file" value="{{.FilePath}}">
+            <button type="submit" class="button">Download Encoded File</button>
             </form>
-
         </main>
         <footer>
             <a href="https://github.com/sillkiw/huffman-web">GitHub</a>
